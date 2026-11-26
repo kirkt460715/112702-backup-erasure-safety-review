@@ -1,0 +1,28 @@
+[
+  {
+    "id": "clean-1",
+    "item": "att-7",
+    "scope": "primary",
+    "proof": "confirmed",
+    "day": 10
+  },
+  {
+    "id": "open-2",
+    "from": "child-2",
+    "target": "restored-2",
+    "scope": [
+      "index-a"
+    ],
+    "access": "not_approved"
+  },
+  {
+    "id": "index-review",
+    "target": "restored-2",
+    "checked": [
+      "lease-7"
+    ],
+    "pending": [
+      "index-a"
+    ]
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "expiry-1",
+    "item": "att-7",
+    "category": "personal_attachment",
+    "expires": 9
+  },
+  {
+    "id": "keep-1",
+    "item": "lease-7",
+    "category": "lease",
+    "hold_until": 37
+  }
+]
