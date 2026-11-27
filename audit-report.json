@@ -1,0 +1,1096 @@
+{
+  "tool": "village-accounts-local-audit",
+  "mode": "read_only_synthetic_manifests_and_receipts",
+  "as_of_day": 10,
+  "sources_present": {
+    "retention": true,
+    "snapshots": true,
+    "restores": true
+  },
+  "snapshot_generations": [
+    {
+      "id": "backup-1",
+      "parent": null,
+      "done_day": 6,
+      "contains": [
+        "att-7",
+        "lease-7"
+      ],
+      "partitions": [],
+      "derived": [],
+      "lineage_notes": []
+    },
+    {
+      "id": "child-2",
+      "parent": "backup-1",
+      "done_day": null,
+      "contains": [
+        "lease-7"
+      ],
+      "partitions": [],
+      "derived": [
+        {
+          "scope": "index-a",
+          "item": "att-7"
+        }
+      ],
+      "lineage_notes": [
+        "派生范围 index-a 引用 att-7；本代 contains 未直接列出，但祖先代（自 backup-1 血缘上）含有该身份，恢复/挂载时仍可能经派生索引重现"
+      ]
+    }
+  ],
+  "summary": {
+    "as_of_day": 10,
+    "as_of_basis": "max_observed_event_day",
+    "inferred_event_day": 10,
+    "items_total": 2,
+    "copies_total": 8,
+    "cleaned_verified_copies": 1,
+    "derived_or_backup_cleaned_copies": 0,
+    "derived_index_cleaned_copies": 0,
+    "backup_record_cleaned_copies": 0,
+    "pending_copies": 1,
+    "held_copies": 4,
+    "residual_expired_copies": 2,
+    "restore_targets": 1,
+    "restore_generation_passed": 0,
+    "restore_pending_verification": 1,
+    "restore_blocked": 0,
+    "gaps_total": 1,
+    "name_conflicts": 0,
+    "overall_decision": "pending_verification",
+    "whole_generation_passed": false
+  },
+  "overall_decision": "pending_verification",
+  "decision": "pending_verification",
+  "verdict": "pending_verification",
+  "items": [
+    {
+      "item": "att-7",
+      "category": "personal_attachment",
+      "names": [],
+      "ledger_record_ids": [
+        "expiry-1"
+      ],
+      "expires": 9,
+      "hold_until": null,
+      "indefinite_hold": false,
+      "measures": [],
+      "retention": {
+        "disposition": "expired",
+        "on_hold": false,
+        "expired": true,
+        "expires": 9,
+        "reason": "第 9 日到期，基准第 10 日已过清理期，且无有效保全"
+      },
+      "copy_count": 4,
+      "cleaned_copy_count": 1,
+      "pending_copy_count": 1,
+      "held_copy_count": 0
+    },
+    {
+      "item": "lease-7",
+      "category": "lease",
+      "names": [],
+      "ledger_record_ids": [
+        "keep-1"
+      ],
+      "expires": null,
+      "hold_until": 37,
+      "indefinite_hold": false,
+      "measures": [],
+      "retention": {
+        "disposition": "on_hold",
+        "on_hold": true,
+        "expired": false,
+        "hold_until": 37,
+        "reason": "合法保留措施覆盖至第 37 日（基准第 10 日）"
+      },
+      "copy_count": 4,
+      "cleaned_copy_count": 0,
+      "pending_copy_count": 0,
+      "held_copy_count": 4
+    }
+  ],
+  "copies": [
+    {
+      "kind": "primary",
+      "item": "att-7",
+      "scope": "primary",
+      "snapshot": null,
+      "target": null,
+      "copy_id": "cp-primary_att_7_primary",
+      "aliases": [
+        "att_7",
+        "primary"
+      ],
+      "kind_label": "线上主副本",
+      "retention": {
+        "disposition": "expired",
+        "on_hold": false,
+        "expired": true,
+        "expires": 9,
+        "reason": "第 9 日到期，基准第 10 日已过清理期，且无有效保全"
+      },
+      "evidence": {
+        "applicable_proofs": [
+          {
+            "id": "clean-1",
+            "strength": "confirmed",
+            "action": "erasure",
+            "day": 10
+          }
+        ],
+        "erasure_proof_ids": [
+          "clean-1"
+        ],
+        "hiding_proof_ids": [],
+        "other_proof_ids": [],
+        "review": {
+          "state": "not_a_restore_copy",
+          "review_ids": [],
+          "matched": []
+        },
+        "access": {
+          "state": "unknown",
+          "record_id": null,
+          "raw_value": null,
+          "scope_specific": false
+        }
+      },
+      "status": "cleaned_verified",
+      "status_label": "已清除并核实",
+      "conclusion": "清除证明 clean-1 （第 10 日） 为已证实的清除类回报，范围匹配",
+      "reasons": [
+        "proof_confirmed_erasure"
+      ],
+      "cleaned": true,
+      "held": false,
+      "pending": false,
+      "residual": false,
+      "blocks_approval": false,
+      "restorable_reappearance_risk": false
+    },
+    {
+      "kind": "primary",
+      "item": "lease-7",
+      "scope": "primary",
+      "snapshot": null,
+      "target": null,
+      "copy_id": "cp-primary_lease_7_primary",
+      "aliases": [
+        "lease_7",
+        "primary"
+      ],
+      "kind_label": "线上主副本",
+      "retention": {
+        "disposition": "on_hold",
+        "on_hold": true,
+        "expired": false,
+        "hold_until": 37,
+        "reason": "合法保留措施覆盖至第 37 日（基准第 10 日）"
+      },
+      "evidence": {
+        "applicable_proofs": [],
+        "erasure_proof_ids": [],
+        "hiding_proof_ids": [],
+        "other_proof_ids": [],
+        "review": {
+          "state": "not_a_restore_copy",
+          "review_ids": [],
+          "matched": []
+        },
+        "access": {
+          "state": "unknown",
+          "record_id": null,
+          "raw_value": null,
+          "scope_specific": false
+        }
+      },
+      "status": "held_lawfully",
+      "status_label": "保全期内，有合法保留依据",
+      "conclusion": "合法保留措施覆盖至第 37 日（基准第 10 日）；该副本有合法保留依据，禁止清理/删除",
+      "reasons": [
+        "合法保留措施覆盖至第 37 日（基准第 10 日）"
+      ],
+      "cleaned": false,
+      "held": true,
+      "pending": false,
+      "residual": false,
+      "blocks_approval": false,
+      "restorable_reappearance_risk": false
+    },
+    {
+      "kind": "snapshot_record",
+      "item": "att-7",
+      "scope": "contains",
+      "snapshot": "backup-1",
+      "target": null,
+      "partition": null,
+      "disk": null,
+      "copy_id": "cp-snapshot_record_att_7_contains_backup_1",
+      "aliases": [
+        "att_7",
+        "backup_1"
+      ],
+      "kind_label": "快照内记录副本",
+      "retention": {
+        "disposition": "expired",
+        "on_hold": false,
+        "expired": true,
+        "expires": 9,
+        "reason": "第 9 日到期，基准第 10 日已过清理期，且无有效保全"
+      },
+      "evidence": {
+        "applicable_proofs": [],
+        "erasure_proof_ids": [],
+        "hiding_proof_ids": [],
+        "other_proof_ids": [],
+        "review": {
+          "state": "not_a_restore_copy",
+          "review_ids": [],
+          "matched": []
+        },
+        "access": {
+          "state": "unknown",
+          "record_id": null,
+          "raw_value": null,
+          "scope_specific": false
+        }
+      },
+      "status": "expired_residual_copy",
+      "status_label": "已到期但仍有残留副本",
+      "conclusion": "已到期身份仍出现在快照/派生清单中且无匹配清除证明，恢复该代将重现此副本",
+      "reasons": [
+        "manifest_still_lists_identity"
+      ],
+      "cleaned": false,
+      "held": false,
+      "pending": false,
+      "residual": true,
+      "blocks_approval": false,
+      "restorable_reappearance_risk": true
+    },
+    {
+      "kind": "snapshot_record",
+      "item": "lease-7",
+      "scope": "contains",
+      "snapshot": "backup-1",
+      "target": null,
+      "partition": null,
+      "disk": null,
+      "copy_id": "cp-snapshot_record_lease_7_contains_backup_1",
+      "aliases": [
+        "backup_1",
+        "lease_7"
+      ],
+      "kind_label": "快照内记录副本",
+      "retention": {
+        "disposition": "on_hold",
+        "on_hold": true,
+        "expired": false,
+        "hold_until": 37,
+        "reason": "合法保留措施覆盖至第 37 日（基准第 10 日）"
+      },
+      "evidence": {
+        "applicable_proofs": [],
+        "erasure_proof_ids": [],
+        "hiding_proof_ids": [],
+        "other_proof_ids": [],
+        "review": {
+          "state": "not_a_restore_copy",
+          "review_ids": [],
+          "matched": []
+        },
+        "access": {
+          "state": "unknown",
+          "record_id": null,
+          "raw_value": null,
+          "scope_specific": false
+        }
+      },
+      "status": "held_lawfully",
+      "status_label": "保全期内，有合法保留依据",
+      "conclusion": "合法保留措施覆盖至第 37 日（基准第 10 日）；该副本有合法保留依据，禁止清理/删除",
+      "reasons": [
+        "合法保留措施覆盖至第 37 日（基准第 10 日）"
+      ],
+      "cleaned": false,
+      "held": true,
+      "pending": false,
+      "residual": false,
+      "blocks_approval": false,
+      "restorable_reappearance_risk": false
+    },
+    {
+      "kind": "snapshot_record",
+      "item": "lease-7",
+      "scope": "contains",
+      "snapshot": "child-2",
+      "target": null,
+      "partition": null,
+      "disk": null,
+      "copy_id": "cp-snapshot_record_lease_7_contains_child_2",
+      "aliases": [
+        "child_2",
+        "lease_7"
+      ],
+      "kind_label": "快照内记录副本",
+      "retention": {
+        "disposition": "on_hold",
+        "on_hold": true,
+        "expired": false,
+        "hold_until": 37,
+        "reason": "合法保留措施覆盖至第 37 日（基准第 10 日）"
+      },
+      "evidence": {
+        "applicable_proofs": [],
+        "erasure_proof_ids": [],
+        "hiding_proof_ids": [],
+        "other_proof_ids": [],
+        "review": {
+          "state": "not_a_restore_copy",
+          "review_ids": [],
+          "matched": []
+        },
+        "access": {
+          "state": "unknown",
+          "record_id": null,
+          "raw_value": null,
+          "scope_specific": false
+        }
+      },
+      "status": "held_lawfully",
+      "status_label": "保全期内，有合法保留依据",
+      "conclusion": "合法保留措施覆盖至第 37 日（基准第 10 日）；该副本有合法保留依据，禁止清理/删除",
+      "reasons": [
+        "合法保留措施覆盖至第 37 日（基准第 10 日）"
+      ],
+      "cleaned": false,
+      "held": true,
+      "pending": false,
+      "residual": false,
+      "blocks_approval": false,
+      "restorable_reappearance_risk": false
+    },
+    {
+      "kind": "derived_index",
+      "item": "att-7",
+      "scope": "index-a",
+      "snapshot": "child-2",
+      "target": null,
+      "partition": null,
+      "disk": null,
+      "index_kind": "index",
+      "copy_id": "cp-derived_index_att_7_index_a_child_2",
+      "aliases": [
+        "att_7",
+        "child_2",
+        "index_a"
+      ],
+      "kind_label": "派生索引副本",
+      "retention": {
+        "disposition": "expired",
+        "on_hold": false,
+        "expired": true,
+        "expires": 9,
+        "reason": "第 9 日到期，基准第 10 日已过清理期，且无有效保全"
+      },
+      "evidence": {
+        "applicable_proofs": [],
+        "erasure_proof_ids": [],
+        "hiding_proof_ids": [],
+        "other_proof_ids": [],
+        "review": {
+          "state": "not_a_restore_copy",
+          "review_ids": [],
+          "matched": []
+        },
+        "access": {
+          "state": "unknown",
+          "record_id": null,
+          "raw_value": null,
+          "scope_specific": false
+        }
+      },
+      "status": "expired_residual_copy",
+      "status_label": "已到期但仍有残留副本",
+      "conclusion": "已到期身份仍出现在快照/派生清单中且无匹配清除证明，恢复该代将重现此副本",
+      "reasons": [
+        "manifest_still_lists_identity"
+      ],
+      "cleaned": false,
+      "held": false,
+      "pending": false,
+      "residual": true,
+      "blocks_approval": false,
+      "restorable_reappearance_risk": true
+    },
+    {
+      "kind": "restored_record",
+      "item": "lease-7",
+      "scope": "contains",
+      "snapshot": "child-2",
+      "target": "restored-2",
+      "restore_id": "open-2",
+      "partition": null,
+      "disk": null,
+      "copy_id": "cp-restored_record_lease_7_contains_child_2_restored_2",
+      "aliases": [
+        "child_2",
+        "lease_7",
+        "restored_2"
+      ],
+      "kind_label": "恢复目标内记录副本",
+      "retention": {
+        "disposition": "on_hold",
+        "on_hold": true,
+        "expired": false,
+        "hold_until": 37,
+        "reason": "合法保留措施覆盖至第 37 日（基准第 10 日）"
+      },
+      "evidence": {
+        "applicable_proofs": [],
+        "erasure_proof_ids": [],
+        "hiding_proof_ids": [],
+        "other_proof_ids": [],
+        "review": {
+          "state": "checked",
+          "review_ids": [
+            "index-review"
+          ],
+          "matched": [
+            "lease_7"
+          ]
+        },
+        "access": {
+          "state": "unknown",
+          "record_id": null,
+          "raw_value": null,
+          "scope_specific": false
+        }
+      },
+      "status": "held_verified",
+      "status_label": "保全记录已在恢复目标核验在位",
+      "conclusion": "合法保留措施覆盖至第 37 日（基准第 10 日）；恢复目标已经独立核验在位，不得删除该历史凭证",
+      "reasons": [
+        "合法保留措施覆盖至第 37 日（基准第 10 日）",
+        "review_checked"
+      ],
+      "cleaned": false,
+      "held": true,
+      "pending": false,
+      "residual": false,
+      "blocks_approval": false,
+      "restorable_reappearance_risk": false
+    },
+    {
+      "kind": "restored_index",
+      "item": "att-7",
+      "scope": "index-a",
+      "snapshot": "child-2",
+      "target": "restored-2",
+      "restore_id": "open-2",
+      "partition": null,
+      "disk": null,
+      "index_kind": "index",
+      "copy_id": "cp-restored_index_att_7_index_a_child_2_restored_2",
+      "aliases": [
+        "att_7",
+        "child_2",
+        "index_a",
+        "restored_2"
+      ],
+      "kind_label": "恢复目标内派生索引副本",
+      "retention": {
+        "disposition": "expired",
+        "on_hold": false,
+        "expired": true,
+        "expires": 9,
+        "reason": "第 9 日到期，基准第 10 日已过清理期，且无有效保全"
+      },
+      "evidence": {
+        "applicable_proofs": [],
+        "erasure_proof_ids": [],
+        "hiding_proof_ids": [],
+        "other_proof_ids": [],
+        "review": {
+          "state": "pending",
+          "review_ids": [
+            "index-review"
+          ],
+          "matched": [
+            "index_a"
+          ]
+        },
+        "access": {
+          "state": "blocked",
+          "record_id": "open-2",
+          "raw_value": "not_approved",
+          "scope_specific": true
+        }
+      },
+      "status": "pending_reverification",
+      "status_label": "重建副本待实际再验证",
+      "conclusion": "重建副本的独立清理验证为 pending，必须实际再验证后才能继续确认（旧清理证明不能自动覆盖新重建副本）",
+      "reasons": [
+        "review_pending"
+      ],
+      "cleaned": false,
+      "held": false,
+      "pending": true,
+      "residual": false,
+      "blocks_approval": true,
+      "restorable_reappearance_risk": false
+    }
+  ],
+  "cleaned_copies": [
+    {
+      "copy_id": "cp-primary_att_7_primary",
+      "item": "att-7",
+      "kind": "primary",
+      "kind_label": "线上主副本",
+      "scope": "primary",
+      "snapshot": null,
+      "target": null,
+      "status": "cleaned_verified",
+      "status_label": "已清除并核实",
+      "conclusion": "清除证明 clean-1 （第 10 日） 为已证实的清除类回报，范围匹配"
+    }
+  ],
+  "derived_cleaned_copies": [],
+  "derived_index_cleaned_copies": [],
+  "backup_cleaned_copies": [],
+  "pending_verification_copies": [
+    {
+      "copy_id": "cp-restored_index_att_7_index_a_child_2_restored_2",
+      "item": "att-7",
+      "kind": "restored_index",
+      "kind_label": "恢复目标内派生索引副本",
+      "scope": "index-a",
+      "snapshot": "child-2",
+      "target": "restored-2",
+      "status": "pending_reverification",
+      "status_label": "重建副本待实际再验证",
+      "conclusion": "重建副本的独立清理验证为 pending，必须实际再验证后才能继续确认（旧清理证明不能自动覆盖新重建副本）"
+    }
+  ],
+  "held_copies": [
+    {
+      "copy_id": "cp-primary_lease_7_primary",
+      "item": "lease-7",
+      "kind": "primary",
+      "kind_label": "线上主副本",
+      "scope": "primary",
+      "snapshot": null,
+      "target": null,
+      "status": "held_lawfully",
+      "status_label": "保全期内，有合法保留依据",
+      "conclusion": "合法保留措施覆盖至第 37 日（基准第 10 日）；该副本有合法保留依据，禁止清理/删除"
+    },
+    {
+      "copy_id": "cp-snapshot_record_lease_7_contains_backup_1",
+      "item": "lease-7",
+      "kind": "snapshot_record",
+      "kind_label": "快照内记录副本",
+      "scope": "contains",
+      "snapshot": "backup-1",
+      "target": null,
+      "status": "held_lawfully",
+      "status_label": "保全期内，有合法保留依据",
+      "conclusion": "合法保留措施覆盖至第 37 日（基准第 10 日）；该副本有合法保留依据，禁止清理/删除"
+    },
+    {
+      "copy_id": "cp-snapshot_record_lease_7_contains_child_2",
+      "item": "lease-7",
+      "kind": "snapshot_record",
+      "kind_label": "快照内记录副本",
+      "scope": "contains",
+      "snapshot": "child-2",
+      "target": null,
+      "status": "held_lawfully",
+      "status_label": "保全期内，有合法保留依据",
+      "conclusion": "合法保留措施覆盖至第 37 日（基准第 10 日）；该副本有合法保留依据，禁止清理/删除"
+    },
+    {
+      "copy_id": "cp-restored_record_lease_7_contains_child_2_restored_2",
+      "item": "lease-7",
+      "kind": "restored_record",
+      "kind_label": "恢复目标内记录副本",
+      "scope": "contains",
+      "snapshot": "child-2",
+      "target": "restored-2",
+      "status": "held_verified",
+      "status_label": "保全记录已在恢复目标核验在位",
+      "conclusion": "合法保留措施覆盖至第 37 日（基准第 10 日）；恢复目标已经独立核验在位，不得删除该历史凭证"
+    }
+  ],
+  "residual_copies": [
+    {
+      "copy_id": "cp-snapshot_record_att_7_contains_backup_1",
+      "item": "att-7",
+      "kind": "snapshot_record",
+      "kind_label": "快照内记录副本",
+      "scope": "contains",
+      "snapshot": "backup-1",
+      "target": null,
+      "status": "expired_residual_copy",
+      "status_label": "已到期但仍有残留副本",
+      "conclusion": "已到期身份仍出现在快照/派生清单中且无匹配清除证明，恢复该代将重现此副本"
+    },
+    {
+      "copy_id": "cp-derived_index_att_7_index_a_child_2",
+      "item": "att-7",
+      "kind": "derived_index",
+      "kind_label": "派生索引副本",
+      "scope": "index-a",
+      "snapshot": "child-2",
+      "target": null,
+      "status": "expired_residual_copy",
+      "status_label": "已到期但仍有残留副本",
+      "conclusion": "已到期身份仍出现在快照/派生清单中且无匹配清除证明，恢复该代将重现此副本"
+    }
+  ],
+  "restore_approvals": [
+    {
+      "restore_id": "open-2",
+      "target": "restored-2",
+      "from_snapshot": "child-2",
+      "snapshot_found": true,
+      "attached_scope": [
+        "index-a"
+      ],
+      "access_raw": "not_approved",
+      "copies_total": 2,
+      "verified_copies": [
+        "lease-7"
+      ],
+      "affected_copies": [
+        "index-a"
+      ],
+      "affected_copy_count": 1,
+      "pending_scopes": [
+        "index-a"
+      ],
+      "reverification_missing_scopes": [],
+      "accessible_expired_scopes": [],
+      "other_blocking_scopes": [],
+      "decision": "pending_verification",
+      "verdict": "pending_verification",
+      "status": "pending_verification",
+      "result": "pending_verification",
+      "approved": false,
+      "passed": false,
+      "generation_passed": false,
+      "whole_generation_verified": false,
+      "partial": true,
+      "blocked": false,
+      "blocking_reasons": [
+        "少量受影响的到期副本尚待实际再验证：恢复目标内派生索引副本 index-a@ restored-2",
+        "结论为局部副本待验证，不能表述为整代恢复通过"
+      ],
+      "decision_label": "少量受影响副本待验证（不是整代恢复通过）"
+    }
+  ],
+  "approvals": [
+    {
+      "restore_id": "open-2",
+      "target": "restored-2",
+      "from_snapshot": "child-2",
+      "snapshot_found": true,
+      "attached_scope": [
+        "index-a"
+      ],
+      "access_raw": "not_approved",
+      "copies_total": 2,
+      "verified_copies": [
+        "lease-7"
+      ],
+      "affected_copies": [
+        "index-a"
+      ],
+      "affected_copy_count": 1,
+      "pending_scopes": [
+        "index-a"
+      ],
+      "reverification_missing_scopes": [],
+      "accessible_expired_scopes": [],
+      "other_blocking_scopes": [],
+      "decision": "pending_verification",
+      "verdict": "pending_verification",
+      "status": "pending_verification",
+      "result": "pending_verification",
+      "approved": false,
+      "passed": false,
+      "generation_passed": false,
+      "whole_generation_verified": false,
+      "partial": true,
+      "blocked": false,
+      "blocking_reasons": [
+        "少量受影响的到期副本尚待实际再验证：恢复目标内派生索引副本 index-a@ restored-2",
+        "结论为局部副本待验证，不能表述为整代恢复通过"
+      ],
+      "decision_label": "少量受影响副本待验证（不是整代恢复通过）"
+    }
+  ],
+  "planned_restores": [],
+  "approval": {
+    "restore_id": "open-2",
+    "target": "restored-2",
+    "from_snapshot": "child-2",
+    "snapshot_found": true,
+    "attached_scope": [
+      "index-a"
+    ],
+    "access_raw": "not_approved",
+    "copies_total": 2,
+    "verified_copies": [
+      "lease-7"
+    ],
+    "affected_copies": [
+      "index-a"
+    ],
+    "affected_copy_count": 1,
+    "pending_scopes": [
+      "index-a"
+    ],
+    "reverification_missing_scopes": [],
+    "accessible_expired_scopes": [],
+    "other_blocking_scopes": [],
+    "decision": "pending_verification",
+    "verdict": "pending_verification",
+    "status": "pending_verification",
+    "result": "pending_verification",
+    "approved": false,
+    "passed": false,
+    "generation_passed": false,
+    "whole_generation_verified": false,
+    "partial": true,
+    "blocked": false,
+    "blocking_reasons": [
+      "少量受影响的到期副本尚待实际再验证：恢复目标内派生索引副本 index-a@ restored-2",
+      "结论为局部副本待验证，不能表述为整代恢复通过"
+    ],
+    "decision_label": "少量受影响副本待验证（不是整代恢复通过）"
+  },
+  "defensive_checks": [
+    {
+      "id": "DC-01",
+      "code": "reverify_erasure_on_rebuilt_copy",
+      "priority": "high",
+      "phase": "after_restore",
+      "target": "restored-2",
+      "scope": "index-a",
+      "item": "att-7",
+      "title": "对 restored-2 的 index-a 重新执行清除后验证",
+      "instruction": "在实际挂接的恢复目标上，用与攻击者相同的读取/检索路径验证该派生范围不再解析出 att-7 的任何内容或索引项；留存新的独立验证回执。旧的 primary 范围证明或重建前证明不得作为通过依据。",
+      "basis_records": [
+        "index-review"
+      ]
+    },
+    {
+      "id": "DC-02",
+      "code": "verify_access_restriction_enforced",
+      "priority": "high",
+      "phase": "after_restore",
+      "target": "restored-2",
+      "scope": [
+        "index-a"
+      ],
+      "item": null,
+      "title": "核实 restored-2 的“不批准访问”在重建后仍然生效",
+      "instruction": "open/访问回执中的 not_approved 只是结论之一；恢复服务可能重建默认授权。应以未授权身份实际探测对应范围，确认认证、授权与分区隔离均拦截，并保存探测证据。",
+      "basis_records": [
+        "open-2"
+      ]
+    },
+    {
+      "id": "DC-03",
+      "code": "reconcile_attached_snapshot_manifest",
+      "priority": "high",
+      "phase": "after_restore",
+      "target": "restored-2",
+      "scope": null,
+      "item": null,
+      "title": "核对实际挂接的 child-2 与备份清单、血缘和范围一致",
+      "instruction": "确认挂接卷/快照身份确为 child-2（含 parent 血缘），contains 身份、partitions 分区与 derived 派生索引逐项对平；任何多出/缺失/无法读取的范围都登记为采集缺口与待查范围。",
+      "basis_records": [
+        "child-2"
+      ]
+    },
+    {
+      "id": "DC-04",
+      "code": "rebuild_indexes_and_confirm_purge",
+      "priority": "high",
+      "phase": "after_restore",
+      "target": "restored-2",
+      "scope": null,
+      "item": null,
+      "title": "重建派生索引并确认到期身份的索引项消失",
+      "instruction": "清除后触发索引/缩略图/全文/缓存重建，再检索到期 item 标识、文件名与内容指纹，确认主库、派生索引和只读副本中均无命中；防止重建服务后派生索引令附件重现。",
+      "basis_records": []
+    },
+    {
+      "id": "DC-05",
+      "code": "verify_held_records_intact_and_policy",
+      "priority": "high",
+      "phase": "after_restore",
+      "target": "restored-2",
+      "scope": [
+        "lease-7"
+      ],
+      "item": null,
+      "title": "验证保全记录在位且保全策略随恢复重新生效",
+      "instruction": "逐项确认保全范围内的租赁凭证可读取、完整且未被清理；确认 hold 标签/保留策略在恢复后重新挂载，任何清理作业都会跳过这些历史凭证。保全仅限台账指定 item 与期间。",
+      "basis_records": []
+    },
+    {
+      "id": "DC-06",
+      "code": "sweep_colocated_attachments",
+      "priority": "medium",
+      "phase": "after_restore",
+      "target": "restored-2",
+      "scope": null,
+      "item": null,
+      "title": "对同分区/同盘其他附件执行同等清点，禁止搭车跳过",
+      "instruction": "列出该目标同一 partition/disk/volume 上的全部附件，逐个匹配台账分类与到期/保全状态；一个记录有保全依据不构成跳过同盘其他附件的理由。",
+      "basis_records": []
+    },
+    {
+      "id": "DC-07",
+      "code": "close_pending_scope_with_new_receipt",
+      "priority": "medium",
+      "phase": "after_restore",
+      "target": "restored-2",
+      "scope": null,
+      "item": null,
+      "title": "用新的回执关闭待查范围",
+      "instruction": "把 pending/未列出的范围全部转为 checked 且无矛盾，或补登合法保全；更新恢复/清理回执后审批才可继续确认。旧清理证明的日期与范围不得覆盖新重建副本。",
+      "basis_records": []
+    },
+    {
+      "id": "DC-08",
+      "code": "establish_integrity_evidence",
+      "priority": "medium",
+      "phase": "after_restore",
+      "target": null,
+      "scope": null,
+      "item": null,
+      "title": "补采快照与回执的完整性材料",
+      "instruction": "现有合成清单不含哈希/签名，工具无法核对完整性，也不会读取真实资料。应在备份时采集清单与派生索引的校验值，恢复后比对；当前先保留采集缺口和待查范围。",
+      "basis_records": []
+    },
+    {
+      "id": "DC-09",
+      "code": "deletion_guard_for_hold",
+      "priority": "high",
+      "phase": "after_restore",
+      "target": null,
+      "scope": null,
+      "item": null,
+      "title": "执行删除前保全拦截",
+      "instruction": "任何物理删除/清理脚本运行前，以台账 hold_until 为准做一次拦截校验：保全期内 item 一律阻断；保全只覆盖指定记录和期间，不得扩大为整盘保留而跳过其他到期附件的清理。",
+      "basis_records": []
+    }
+  ],
+  "defensive_validations": [
+    {
+      "id": "DC-01",
+      "code": "reverify_erasure_on_rebuilt_copy",
+      "priority": "high",
+      "phase": "after_restore",
+      "target": "restored-2",
+      "scope": "index-a",
+      "item": "att-7",
+      "title": "对 restored-2 的 index-a 重新执行清除后验证",
+      "instruction": "在实际挂接的恢复目标上，用与攻击者相同的读取/检索路径验证该派生范围不再解析出 att-7 的任何内容或索引项；留存新的独立验证回执。旧的 primary 范围证明或重建前证明不得作为通过依据。",
+      "basis_records": [
+        "index-review"
+      ]
+    },
+    {
+      "id": "DC-02",
+      "code": "verify_access_restriction_enforced",
+      "priority": "high",
+      "phase": "after_restore",
+      "target": "restored-2",
+      "scope": [
+        "index-a"
+      ],
+      "item": null,
+      "title": "核实 restored-2 的“不批准访问”在重建后仍然生效",
+      "instruction": "open/访问回执中的 not_approved 只是结论之一；恢复服务可能重建默认授权。应以未授权身份实际探测对应范围，确认认证、授权与分区隔离均拦截，并保存探测证据。",
+      "basis_records": [
+        "open-2"
+      ]
+    },
+    {
+      "id": "DC-03",
+      "code": "reconcile_attached_snapshot_manifest",
+      "priority": "high",
+      "phase": "after_restore",
+      "target": "restored-2",
+      "scope": null,
+      "item": null,
+      "title": "核对实际挂接的 child-2 与备份清单、血缘和范围一致",
+      "instruction": "确认挂接卷/快照身份确为 child-2（含 parent 血缘），contains 身份、partitions 分区与 derived 派生索引逐项对平；任何多出/缺失/无法读取的范围都登记为采集缺口与待查范围。",
+      "basis_records": [
+        "child-2"
+      ]
+    },
+    {
+      "id": "DC-04",
+      "code": "rebuild_indexes_and_confirm_purge",
+      "priority": "high",
+      "phase": "after_restore",
+      "target": "restored-2",
+      "scope": null,
+      "item": null,
+      "title": "重建派生索引并确认到期身份的索引项消失",
+      "instruction": "清除后触发索引/缩略图/全文/缓存重建，再检索到期 item 标识、文件名与内容指纹，确认主库、派生索引和只读副本中均无命中；防止重建服务后派生索引令附件重现。",
+      "basis_records": []
+    },
+    {
+      "id": "DC-05",
+      "code": "verify_held_records_intact_and_policy",
+      "priority": "high",
+      "phase": "after_restore",
+      "target": "restored-2",
+      "scope": [
+        "lease-7"
+      ],
+      "item": null,
+      "title": "验证保全记录在位且保全策略随恢复重新生效",
+      "instruction": "逐项确认保全范围内的租赁凭证可读取、完整且未被清理；确认 hold 标签/保留策略在恢复后重新挂载，任何清理作业都会跳过这些历史凭证。保全仅限台账指定 item 与期间。",
+      "basis_records": []
+    },
+    {
+      "id": "DC-06",
+      "code": "sweep_colocated_attachments",
+      "priority": "medium",
+      "phase": "after_restore",
+      "target": "restored-2",
+      "scope": null,
+      "item": null,
+      "title": "对同分区/同盘其他附件执行同等清点，禁止搭车跳过",
+      "instruction": "列出该目标同一 partition/disk/volume 上的全部附件，逐个匹配台账分类与到期/保全状态；一个记录有保全依据不构成跳过同盘其他附件的理由。",
+      "basis_records": []
+    },
+    {
+      "id": "DC-07",
+      "code": "close_pending_scope_with_new_receipt",
+      "priority": "medium",
+      "phase": "after_restore",
+      "target": "restored-2",
+      "scope": null,
+      "item": null,
+      "title": "用新的回执关闭待查范围",
+      "instruction": "把 pending/未列出的范围全部转为 checked 且无矛盾，或补登合法保全；更新恢复/清理回执后审批才可继续确认。旧清理证明的日期与范围不得覆盖新重建副本。",
+      "basis_records": []
+    },
+    {
+      "id": "DC-08",
+      "code": "establish_integrity_evidence",
+      "priority": "medium",
+      "phase": "after_restore",
+      "target": null,
+      "scope": null,
+      "item": null,
+      "title": "补采快照与回执的完整性材料",
+      "instruction": "现有合成清单不含哈希/签名，工具无法核对完整性，也不会读取真实资料。应在备份时采集清单与派生索引的校验值，恢复后比对；当前先保留采集缺口和待查范围。",
+      "basis_records": []
+    },
+    {
+      "id": "DC-09",
+      "code": "deletion_guard_for_hold",
+      "priority": "high",
+      "phase": "after_restore",
+      "target": null,
+      "scope": null,
+      "item": null,
+      "title": "执行删除前保全拦截",
+      "instruction": "任何物理删除/清理脚本运行前，以台账 hold_until 为准做一次拦截校验：保全期内 item 一律阻断；保全只覆盖指定记录和期间，不得扩大为整盘保留而跳过其他到期附件的清理。",
+      "basis_records": []
+    }
+  ],
+  "checklist": [
+    "DC-01 [high] 对 restored-2 的 index-a 重新执行清除后验证：在实际挂接的恢复目标上，用与攻击者相同的读取/检索路径验证该派生范围不再解析出 att-7 的任何内容或索引项；留存新的独立验证回执。旧的 primary 范围证明或重建前证明不得作为通过依据。",
+    "DC-02 [high] 核实 restored-2 的“不批准访问”在重建后仍然生效：open/访问回执中的 not_approved 只是结论之一；恢复服务可能重建默认授权。应以未授权身份实际探测对应范围，确认认证、授权与分区隔离均拦截，并保存探测证据。",
+    "DC-03 [high] 核对实际挂接的 child-2 与备份清单、血缘和范围一致：确认挂接卷/快照身份确为 child-2（含 parent 血缘），contains 身份、partitions 分区与 derived 派生索引逐项对平；任何多出/缺失/无法读取的范围都登记为采集缺口与待查范围。",
+    "DC-04 [high] 重建派生索引并确认到期身份的索引项消失：清除后触发索引/缩略图/全文/缓存重建，再检索到期 item 标识、文件名与内容指纹，确认主库、派生索引和只读副本中均无命中；防止重建服务后派生索引令附件重现。",
+    "DC-05 [high] 验证保全记录在位且保全策略随恢复重新生效：逐项确认保全范围内的租赁凭证可读取、完整且未被清理；确认 hold 标签/保留策略在恢复后重新挂载，任何清理作业都会跳过这些历史凭证。保全仅限台账指定 item 与期间。",
+    "DC-06 [medium] 对同分区/同盘其他附件执行同等清点，禁止搭车跳过：列出该目标同一 partition/disk/volume 上的全部附件，逐个匹配台账分类与到期/保全状态；一个记录有保全依据不构成跳过同盘其他附件的理由。",
+    "DC-07 [medium] 用新的回执关闭待查范围：把 pending/未列出的范围全部转为 checked 且无矛盾，或补登合法保全；更新恢复/清理回执后审批才可继续确认。旧清理证明的日期与范围不得覆盖新重建副本。",
+    "DC-08 [medium] 补采快照与回执的完整性材料：现有合成清单不含哈希/签名，工具无法核对完整性，也不会读取真实资料。应在备份时采集清单与派生索引的校验值，恢复后比对；当前先保留采集缺口和待查范围。",
+    "DC-09 [high] 执行删除前保全拦截：任何物理删除/清理脚本运行前，以台账 hold_until 为准做一次拦截校验：保全期内 item 一律阻断；保全只覆盖指定记录和期间，不得扩大为整盘保留而跳过其他到期附件的清理。"
+  ],
+  "gaps": [
+    {
+      "code": "no_integrity_material",
+      "severity": "medium",
+      "message": "合成清单与回执不含哈希/签名等完整性材料，且本工具按设计不读取真实资料，因此无法核对实际字节完整性；该采集缺口需由备份校验值与恢复后比对补齐"
+    }
+  ],
+  "collection_gaps": [
+    {
+      "code": "no_integrity_material",
+      "severity": "medium",
+      "message": "合成清单与回执不含哈希/签名等完整性材料，且本工具按设计不读取真实资料，因此无法核对实际字节完整性；该采集缺口需由备份校验值与恢复后比对补齐"
+    }
+  ],
+  "pending_scope": [
+    {
+      "target": "restored-2",
+      "scope": "index-a",
+      "reason": "独立验证回执标记 pending"
+    }
+  ],
+  "identity_conflicts": [],
+  "corrections": [],
+  "deletion_guard_overview": {
+    "held_items": [
+      "lease-7"
+    ],
+    "expired_items": [
+      "att-7"
+    ]
+  },
+  "read_only_statement": "本工具只读取本地合成 JSON 清单与回执，不读取、恢复或删除真实资料；所有“已核实”仅表示回执证据可匹配，实际字节完整性需按防御清单再验证。",
+  "answers": {
+    "cleaned": [
+      "线上主副本 att-7（身份 att-7）：清除证明 clean-1 （第 10 日） 为已证实的清除类回报，范围匹配"
+    ],
+    "derived_statement": "没有任何派生索引或备份/恢复副本可被认定为“确实已经清理”：已证实的清除仅覆盖范围匹配的主副本，旧证明不自动覆盖派生或重建副本。",
+    "held": [
+      "lease-7：台账合法保留至第 37 日（基准第 10 日），共 4 个副本有保全依据，不得删除；保全仅覆盖该身份与该期间。"
+    ],
+    "residual": [
+      "快照内记录副本 att-7（身份 att-7，快照 backup-1）仍在清单中且无匹配清除证明，恢复相应快照代会重现。",
+      "派生索引副本 index-a（身份 att-7，快照 child-2）仍在清单中且无匹配清除证明，恢复相应快照代会重现。"
+    ],
+    "approvals": [
+      "恢复目标 restored-2（来自 child-2）：少量受影响副本待验证（不是整代恢复通过）；受影响副本 ['index-a'] 共 1 个，已核验 ['lease-7']。"
+    ],
+    "gaps": [
+      "合成清单与回执不含哈希/签名等完整性材料，且本工具按设计不读取真实资料，因此无法核对实际字节完整性；该采集缺口需由备份校验值与恢复后比对补齐"
+    ],
+    "summary_lines": [
+      "【确已清理】线上主副本 att-7（身份 att-7）：清除证明 clean-1 （第 10 日） 为已证实的清除类回报，范围匹配",
+      "【派生副本】没有任何派生索引或备份/恢复副本可被认定为“确实已经清理”：已证实的清除仅覆盖范围匹配的主副本，旧证明不自动覆盖派生或重建副本。",
+      "【仍有保全依据】lease-7：台账合法保留至第 37 日（基准第 10 日），共 4 个副本有保全依据，不得删除；保全仅覆盖该身份与该期间。",
+      "【快照内残留】快照内记录副本 att-7（身份 att-7，快照 backup-1）仍在清单中且无匹配清除证明，恢复相应快照代会重现。 派生索引副本 index-a（身份 att-7，快照 child-2）仍在清单中且无匹配清除证明，恢复相应快照代会重现。",
+      "【恢复审批】恢复目标 restored-2（来自 child-2）：少量受影响副本待验证（不是整代恢复通过）；受影响副本 ['index-a'] 共 1 个，已核验 ['lease-7']。",
+      "【恢复后防御验证】应重新执行 9 项检查（见 defensive_checks/checklist），核心是重建副本清除再验证、访问拦截实测、清单血缘核对、索引重建复查、保全在位与同盘附件清点。",
+      "【采集缺口/待查】保留 1 项缺口与 1 项待查范围；无法核对完整性时不作“已清理”推定。"
+    ]
+  },
+  "conclusions": [
+    "【确已清理】线上主副本 att-7（身份 att-7）：清除证明 clean-1 （第 10 日） 为已证实的清除类回报，范围匹配",
+    "【派生副本】没有任何派生索引或备份/恢复副本可被认定为“确实已经清理”：已证实的清除仅覆盖范围匹配的主副本，旧证明不自动覆盖派生或重建副本。",
+    "【仍有保全依据】lease-7：台账合法保留至第 37 日（基准第 10 日），共 4 个副本有保全依据，不得删除；保全仅覆盖该身份与该期间。",
+    "【快照内残留】快照内记录副本 att-7（身份 att-7，快照 backup-1）仍在清单中且无匹配清除证明，恢复相应快照代会重现。 派生索引副本 index-a（身份 att-7，快照 child-2）仍在清单中且无匹配清除证明，恢复相应快照代会重现。",
+    "【恢复审批】恢复目标 restored-2（来自 child-2）：少量受影响副本待验证（不是整代恢复通过）；受影响副本 ['index-a'] 共 1 个，已核验 ['lease-7']。",
+    "【恢复后防御验证】应重新执行 9 项检查（见 defensive_checks/checklist），核心是重建副本清除再验证、访问拦截实测、清单血缘核对、索引重建复查、保全在位与同盘附件清点。",
+    "【采集缺口/待查】保留 1 项缺口与 1 项待查范围；无法核对完整性时不作“已清理”推定。"
+  ]
+}
